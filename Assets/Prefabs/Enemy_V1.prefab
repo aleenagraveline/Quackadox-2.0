@@ -54,9 +54,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -100,7 +97,6 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239494425324698010}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -124,8 +120,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,11 +131,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+  serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &8428175450228196591
 Rigidbody2D:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,8 +147,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -174,13 +170,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1239494425324698010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc9999f7572b9d43a389c83a49276e9, type: 3}
+  m_Script: {fileID: 11500000, guid: cc7f4adbcc3ef244fa2835b07fd30403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PointA: {fileID: 6600056998972221157}
   PointB: {fileID: 7878101314641872614}
   ReturnPoint: {fileID: 6121834885809619180}
-  speed: 4
+  speed: 0
   PlayerPoint: {fileID: 0}
   GuardState: 0
   stopDistance: 0.1
@@ -225,7 +221,6 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4835052154040460988}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -249,8 +244,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,6 +255,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+  serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &5679062358442301834
@@ -272,18 +267,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4835052154040460988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015088fa684409941a5f9af6779d22b2, type: 3}
+  m_Script: {fileID: 11500000, guid: cad6ebb32391ff048bec6952b3801ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerRB: {fileID: 0}
-  shouldPushPlayer: 1
-  knockbackPower: 20
-  isPitfall: 0
   Phealth: {fileID: 0}
-  damageCooldown: 1
-  sounds: {fileID: 0}
-  checkpoints: {fileID: 0}
+  HitBox: {fileID: 0}
 --- !u!1 &6121834885809619180
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +376,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7765164051305243771}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -411,9 +399,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
   m_Radius: 4
 --- !u!114 &5419006505274442578
 MonoBehaviour:
@@ -424,7 +412,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7765164051305243771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bbee7022759194898cb4f4623d3eee, type: 3}
+  m_Script: {fileID: 11500000, guid: fd30cd41523acc3468b6e866355d89fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5554090403924350916}
