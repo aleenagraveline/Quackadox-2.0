@@ -386,4 +386,14 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = unlocked;
     }
+
+    public void PlayDuckQuackAnimation()
+    {
+        animator.SetBool("IsQuacking", true);
+    }
+
+    public void StopDuckQuackAnimation()
+    {
+        animator.SetBool("IsQuacking", false);
+    }
 }

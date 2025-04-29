@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (playerMovement != null)
             {
-                //playerMovement.PlayDuckQuackAnimation(); // Set bool true
+                playerMovement.PlayDuckQuackAnimation(); // Set bool true
                 Debug.Log("AnimationQuack");
 
                 // Stop animation after a delay (match the animation duration)
@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(delay);
         if (playerMovement != null)
         {
-            //playerMovement.StopDuckQuackAnimation(); // Set bool false
+            playerMovement.StopDuckQuackAnimation(); // Set bool false
         }
     }
 
