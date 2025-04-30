@@ -533,9 +533,9 @@ GameObject:
   m_Component:
   - component: {fileID: 65204154}
   - component: {fileID: 65204161}
-  - component: {fileID: 65204155}
+  - component: {fileID: 65204162}
+  - component: {fileID: 65204163}
   - component: {fileID: 65204160}
-  - component: {fileID: 65204159}
   - component: {fileID: 65204158}
   - component: {fileID: 65204157}
   - component: {fileID: 65204156}
@@ -563,25 +563,6 @@ Transform:
   - {fileID: 1162167761}
   m_Father: {fileID: 401494112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &65204155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65204153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00812dd0b92baa3449ace85ef54c7339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointA: {fileID: 1155107571}
-  PointB: {fileID: 69814464}
-  ReturnPoint: {fileID: 550278462}
-  speed: 4
-  PlayerPoint: {fileID: 1711999156}
-  GuardState: 0
-  stopDistance: 0.1
 --- !u!95 &65204156
 Animator:
   serializedVersion: 5
@@ -675,20 +656,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65156937, y: 0.72042394}
   m_EdgeRadius: 0
---- !u!114 &65204159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65204153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e69db6889b8afc4a82961f3752c06a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1711999152}
-  Phealth: {fileID: 1711999160}
 --- !u!114 &65204160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +721,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &65204162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65204153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7f4adbcc3ef244fa2835b07fd30403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointA: {fileID: 1155107571}
+  PointB: {fileID: 69814464}
+  ReturnPoint: {fileID: 550278462}
+  speed: 2
+  PlayerPoint: {fileID: 1711999156}
+  GuardState: 0
+  stopDistance: 0.1
+--- !u!114 &65204163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65204153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad6ebb32391ff048bec6952b3801ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1711999152}
+  Phealth: {fileID: 1711999160}
 --- !u!1 &68689596
 GameObject:
   m_ObjectHideFlags: 0
@@ -6984,7 +6984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218318588}
   - component: {fileID: 1218318590}
-  - component: {fileID: 1218318589}
+  - component: {fileID: 1218318591}
   m_Layer: 0
   m_Name: EnemyDetect
   m_TagString: Untagged
@@ -7007,20 +7007,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1649833149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1218318589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218318587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1310a4ea88af4e4e9504ae1e299f9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 1649833150}
-  Detect: 0
 --- !u!58 &1218318590
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7056,6 +7042,20 @@ CircleCollider2D:
   m_Offset: {x: 0.118435815, y: 0.027089942}
   serializedVersion: 2
   m_Radius: 0.8464846
+--- !u!114 &1218318591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218318587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd30cd41523acc3468b6e866355d89fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1649833157}
+  Detect: 0
 --- !u!1 &1267517673
 GameObject:
   m_ObjectHideFlags: 0
@@ -7271,7 +7271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296290202}
   - component: {fileID: 1296290204}
-  - component: {fileID: 1296290203}
+  - component: {fileID: 1296290205}
   m_Layer: 0
   m_Name: EnemyDetect
   m_TagString: Untagged
@@ -7294,20 +7294,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 65204154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1296290203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296290201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1310a4ea88af4e4e9504ae1e299f9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 65204155}
-  Detect: 0
 --- !u!58 &1296290204
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7343,6 +7329,20 @@ CircleCollider2D:
   m_Offset: {x: 0.13478005, y: 0.027089942}
   serializedVersion: 2
   m_Radius: 1.1180617
+--- !u!114 &1296290205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296290201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd30cd41523acc3468b6e866355d89fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 65204162}
+  Detect: 0
 --- !u!1 &1311471408
 GameObject:
   m_ObjectHideFlags: 0
@@ -47847,9 +47847,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1649833149}
   - component: {fileID: 1649833156}
-  - component: {fileID: 1649833150}
+  - component: {fileID: 1649833157}
+  - component: {fileID: 1649833158}
   - component: {fileID: 1649833155}
-  - component: {fileID: 1649833154}
   - component: {fileID: 1649833153}
   - component: {fileID: 1649833152}
   - component: {fileID: 1649833151}
@@ -47877,25 +47877,6 @@ Transform:
   - {fileID: 566755634}
   m_Father: {fileID: 830691084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1649833150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649833148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00812dd0b92baa3449ace85ef54c7339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointA: {fileID: 1214011355}
-  PointB: {fileID: 640279257}
-  ReturnPoint: {fileID: 173548670}
-  speed: 4
-  PlayerPoint: {fileID: 1711999156}
-  GuardState: 0
-  stopDistance: 0.1
 --- !u!95 &1649833151
 Animator:
   serializedVersion: 5
@@ -47989,20 +47970,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65156937, y: 0.72042394}
   m_EdgeRadius: 0
---- !u!114 &1649833154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649833148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e69db6889b8afc4a82961f3752c06a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1711999152}
-  Phealth: {fileID: 1711999160}
 --- !u!114 &1649833155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48068,6 +48035,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1649833157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649833148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7f4adbcc3ef244fa2835b07fd30403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointA: {fileID: 1214011355}
+  PointB: {fileID: 640279257}
+  ReturnPoint: {fileID: 173548670}
+  speed: 2
+  PlayerPoint: {fileID: 1711999156}
+  GuardState: 0
+  stopDistance: 0.1
+--- !u!114 &1649833158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649833148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad6ebb32391ff048bec6952b3801ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1711999152}
+  Phealth: {fileID: 1711999160}
 --- !u!1 &1668759780
 GameObject:
   m_ObjectHideFlags: 0
