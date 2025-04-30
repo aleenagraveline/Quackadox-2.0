@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //HillSwitch
+    private bool inPathSwitchZone = false;
+    private bool onHill = false;
+
     //Walk sound
     private float walkSoundToggleTimer = 0f;
     private bool playHighSound = true;
@@ -63,6 +67,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        if (inPathSwitchZone)
+        {
+            if (Input.GetKeyDown(KeyCode.W) && !onHill)
+            {
+                SwitchToHillPath();
+            }
+            else if (Input.GetKeyDown(KeyCode.S) && onHill)
+            {
+                SwitchToGroundPath();
+            }
+        }
+
+
         // Dash Charge Recharge
         if (currentDashCharge < maxDashCharge)
         {
@@ -395,5 +413,37 @@ public class PlayerMovement : MonoBehaviour
     public void StopDuckQuackAnimation()
     {
         animator.SetBool("IsQuacking", false);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PathSwitchZone"))
+        {
+            inPathSwitchZone = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("PathSwitchZone"))
+        {
+            inPathSwitchZone = false;
+        }
+    }
+
+    void SwitchToHillPath()
+    {
+        onHill = true;
+        gameObject.layer = LayerMask.NameToLayer("Background");
+        spriteRenderer.sortingOrder = -1;
+        transform.position += new Vector3(0, 0.1f, 0); // slight move for visual effect
+    }
+
+    void SwitchToGroundPath()
+    {
+        onHill = false;
+        gameObject.layer = LayerMask.NameToLayer("Foreground");
+        spriteRenderer.sortingOrder = 0;
+        transform.position -= new Vector3(0, 0.1f, 0);
     }
 }
