@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     //the position of the player
     public Transform PlayerPoint;
     //indicates what the enemy will be doing. 0 = guarding, 1 = follow the player, and 2 is returning
-    public float GuardState;
+    public float GuardState; 
     //for the return function
     public float stopDistance = 0.1f;
 
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         if (GuardState == 0)
         {
             Guard();
-        }
+        } 
         else if (Mathf.Approximately(GuardState, 1))
         {
             FollowPlayer();
@@ -51,19 +51,19 @@ public class Enemy : MonoBehaviour
     //This function will use the position of the player and goes towards it
     private void FollowPlayer()
     {
-
+        
         Vector3 direction = (PlayerPoint.position - transform.position).normalized;
-        direction.y = 0f;
+        direction.y = 0f; 
 
-
+      
         rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, 0f);
-        if (direction.x > 0)
+        if(direction.x > 0)
         {
             Vector3 localScale = transform.localScale;
             localScale.x = 1.25f;
             transform.localScale = localScale;
-        }
-        else if (direction.x < 0)
+        } 
+        else if(direction.x < 0)
         {
             Vector3 localScale = transform.localScale;
             localScale.x = -1.25f;
@@ -113,10 +113,10 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Return");
         Vector2 targetPosition = ReturnPoint.transform.position;
-
+        
         if (Vector2.Distance(transform.position, targetPosition) > stopDistance && transform.position.x > 0)
         {
-
+       
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
             Vector3 localScale = transform.localScale;
             localScale.x = -1.25f;
@@ -131,10 +131,10 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-
+          
             GuardState = 0;
             Debug.Log("im back");
-
+            
         }
     }
 

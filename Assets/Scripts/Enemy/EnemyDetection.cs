@@ -21,7 +21,7 @@ public class EnemyDetection : MonoBehaviour
     {
         //this will change the status of the enemy when the player has been seen
         //Debug.Log("countDown: " + countDown);
-
+        
         //this is when the player lost the player. it will start to count down until the enemy has to go back to it position
         if (!Detect && countDown > 0)
         {
@@ -36,20 +36,20 @@ public class EnemyDetection : MonoBehaviour
         {
             countDown = 6f;
         }
-
-
+     
+        
     }
 
     //if the player is in the circle trigger, the enemy will start to follow the player
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Enemy found the duck");
             //enemy.Guarding = false;
             enemy.GuardState = 1;
             Detect = true;
-
+ 
             //Debug.Log("THE DUCK");
         }
     }
