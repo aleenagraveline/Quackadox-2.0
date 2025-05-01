@@ -2161,7 +2161,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -2331,7 +2331,7 @@ MonoBehaviour:
   player: {fileID: 1711999152}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -3317,7 +3317,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 5
@@ -4406,7 +4406,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -4941,7 +4941,7 @@ MonoBehaviour:
   player: {fileID: 1711999152}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -5408,7 +5408,7 @@ MonoBehaviour:
   player: {fileID: 1711999152}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -7004,7 +7004,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 1
@@ -8033,7 +8033,7 @@ MonoBehaviour:
   player: {fileID: 1711999152}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -9028,7 +9028,7 @@ MonoBehaviour:
   player: {fileID: 1711999152}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -15347,7 +15347,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -16470,7 +16470,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -56755,7 +56755,7 @@ MonoBehaviour:
   player: {fileID: 1711999152}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -56907,7 +56907,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
@@ -58152,7 +58152,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 500
+  knockbackPower: 50
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 0.5
