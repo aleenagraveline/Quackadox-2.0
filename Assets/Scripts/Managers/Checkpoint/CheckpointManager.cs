@@ -11,7 +11,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private int maxLives = 3; // Maximum number of lives
 
     private int currentLives;
-    private Vector2 currentCheckpointPosition;
+    [SerializeField] private Vector2 currentCheckpointPosition;
     private bool hasCheckpoint = false;
     private PlayerHealth playerHealth;
 
@@ -46,6 +46,7 @@ public class CheckpointManager : MonoBehaviour
         {
             playerHealth = player.GetComponent<PlayerHealth>();
             player.transform.position = startPosition.position;
+            currentCheckpointPosition = startPosition.position;
         }
         else
         {
@@ -131,6 +132,7 @@ public class CheckpointManager : MonoBehaviour
 
         // Reset checkpoint
         hasCheckpoint = false;
+        currentCheckpointPosition = startPosition.position;
 
         // Reset all checkpoints in the scene
         Checkpoint[] checkpoints = Object.FindObjectsByType<Checkpoint>(FindObjectsSortMode.None);

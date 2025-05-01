@@ -48,7 +48,7 @@ public class DamagePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("DAMAGE COLLISION: " + collider.gameObject);
-        if (collider.gameObject == player && !playerDamaged)
+        if (collider.gameObject == player.gameObject && !playerDamaged)
         {
             Debug.Log("OW!");
             sounds.Play("Damage");
@@ -59,14 +59,14 @@ public class DamagePlayer : MonoBehaviour
                 float movementDirection = player.GetComponent<PlayerMovement>().GetHorizontal();
                 if (movementDirection < 0)
                 {
-                    playerRB.velocity = new Vector3(knockbackPower, 0f, 0f);
+                    playerRB.velocity = new Vector2(knockbackPower, 0f);
                     Debug.Log("Movement is negative");
                     Debug.Log(playerRB.velocity);
                     StartCoroutine(ChangeExternalVelocityRight());
                 }
                 else
                 {
-                    playerRB.velocity = new Vector3(-knockbackPower, 0f, 0f);
+                    playerRB.velocity = new Vector2(-knockbackPower, 0f);
                     Debug.Log(playerRB.velocity);
                     Debug.Log("Movement is positive or zero");
                     StartCoroutine(ChangeExternalVelocityLeft());
@@ -88,7 +88,7 @@ public class DamagePlayer : MonoBehaviour
     {
         while (playerRB.velocity.x > 0)
         {
-            playerRB.velocity = new Vector3(playerRB.velocity.x - knockbackPower / 10, 0f, 0f);
+            playerRB.velocity = new Vector2(playerRB.velocity.x - knockbackPower / 10, 0f);
             Debug.Log("Zeroing velocity right");
             Debug.Log(playerRB.velocity);
             yield return null;
@@ -103,7 +103,7 @@ public class DamagePlayer : MonoBehaviour
     {
         while (playerRB.velocity.x < 0)
         {
-            playerRB.velocity = new Vector3(playerRB.velocity.x + knockbackPower / 10, 0f, 0f);
+            playerRB.velocity = new Vector3(playerRB.velocity.x + knockbackPower / 10, 0f);
             Debug.Log("Zeroing velocity left");
             Debug.Log(playerRB.velocity);
             yield return null;

@@ -138,14 +138,15 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", !isGrounded); // Update jumping animation state
 
         // Movement
-        moveInput = Input.GetAxis("Horizontal");
-        horizontal = moveInput;
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
-        animator.SetBool("IsWalking", moveInput != 0);
-
+        if (!isBeingPushed)
+        {
+            moveInput = Input.GetAxis("Horizontal");
+            horizontal = moveInput;
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            animator.SetBool("IsWalking", moveInput != 0);
+        }
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && UI.pauseState == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && UI.pauseState == 0 && !isBeingPushed)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             FindObjectOfType<AudioManager>().Play("Jump");
@@ -280,8 +281,8 @@ public class PlayerMovement : MonoBehaviour
         // Destroy the entry portal
         Destroy(entryPortal);
 
-        yield return new WaitForSeconds(dashingCooldown);
-        canDash = true;
+        /*yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;*/
     }
 
     public void TeleportToAlternateWorld()
@@ -359,7 +360,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Reset dashing state after portal emergence
         tr.emitting = false;
-        rb.gravityScale = 1f; // just in case
+        rb.gravityScale = 10f; // just in case
         isDashing = false;
         animator.Play("PlayerIdle"); // or whatever your idle/walk default is
 

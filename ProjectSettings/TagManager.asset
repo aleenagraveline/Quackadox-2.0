@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LaserBeam
+    uniqueID: 727443425
+    locked: 0
