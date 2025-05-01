@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public Animator animator;
 
-    [SerializeField] private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
     private float groundCheckRadius = 0.2f;
