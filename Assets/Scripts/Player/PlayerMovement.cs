@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [SerializeField] private GameObject normalBackground;
+    [SerializeField] private GameObject alternateBackground;
+
     //HillSwitch
     private bool inPathSwitchZone = false;
     private bool onHill = false;
@@ -371,18 +375,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void SwitchWorld()
     {
-        // Check if the world is currently in the altered state
-        if (Camera.main.backgroundColor == originalBackgroundColor)
+        if (isInAlternateLevel)
         {
-            // If it's the original color, switch to the new color (e.g., red)
-            Camera.main.backgroundColor = Color.magenta;
-            Debug.Log("World switched to red!");
+            // Switch to alternate background
+            if (normalBackground != null) normalBackground.SetActive(false);
+            if (alternateBackground != null) alternateBackground.SetActive(true);
         }
         else
         {
-            // If it's already altered, switch back to the original color
-            Camera.main.backgroundColor = originalBackgroundColor;
-            Debug.Log("World switched back to the original state!");
+            // Switch to normal background
+            if (normalBackground != null) normalBackground.SetActive(true);
+            if (alternateBackground != null) alternateBackground.SetActive(false);
         }
     }
 

@@ -28,8 +28,14 @@ public class PlayerHealth : MonoBehaviour
     private CheckpointManager checkpointManager;
     //private bool isRespawning = false;
 
+    private Animator animator;
+
+
     public void Start()
     {
+
+        animator = GetComponent<PlayerMovement>().GetComponent<Animator>();
+
         //Death_Screen.SetActive(false);
         //Creating the health bar
         T_Health = new Image[maxHealth];
@@ -61,6 +67,9 @@ public class PlayerHealth : MonoBehaviour
 
             //SceneManager.LoadScene("Level1", LoadSceneMode.Single);
 
+            animator.SetTrigger("Death"); // Trigger death animation
+
+
             // Start death sequence
             StartCoroutine(HandleDeath());
         }
@@ -69,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator HandleDeath()
     {
         // Short delay before respawning
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.1f);
 
         // Notify checkpoint manager
         if (checkpointManager != null)
@@ -112,6 +121,7 @@ public class PlayerHealth : MonoBehaviour
         {
             T_Health[health - 1].sprite = dHealth;
             health -= 1;
+            animator.SetTrigger("Hurt");  // Play damage animation
             Debug.Log("Health: " + health);
         }
     }
