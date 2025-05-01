@@ -51,37 +51,49 @@ public class DamagePlayer : MonoBehaviour
         if (collider.gameObject == player.gameObject && !playerDamaged)
         {
             Debug.Log("OW!");
-            sounds.Play("Damage");
-
-            if (shouldPushPlayer)
-            {
-                player.GetComponent<PlayerMovement>().SetPushed(true);
-                float movementDirection = player.GetComponent<PlayerMovement>().GetHorizontal();
-                if (movementDirection < 0)
-                {
-                    playerRB.velocity = new Vector2(knockbackPower, 0f);
-                    Debug.Log("Movement is negative");
-                    Debug.Log(playerRB.velocity);
-                    StartCoroutine(ChangeExternalVelocityRight());
-                }
-                else
-                {
-                    playerRB.velocity = new Vector2(-knockbackPower, 0f);
-                    Debug.Log(playerRB.velocity);
-                    Debug.Log("Movement is positive or zero");
-                    StartCoroutine(ChangeExternalVelocityLeft());
-                }
-            }
-            else if (isPitfall && Phealth.health > 0)
-            {
-                checkpoints.RespawnPlayerAtCheckpoint();
-            }
-
-            Phealth.Damaged();
-            Debug.Log("Take damage");
-            playerDamaged = true;
-            damageCountdown = damageCooldown;
+            DamageHandler();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            DamageHandler();
+        }
+    }
+
+    public void DamageHandler()
+    {
+        sounds.Play("Damage");
+
+        if (shouldPushPlayer)
+        {
+            player.GetComponent<PlayerMovement>().SetPushed(true);
+            float movementDirection = player.GetComponent<PlayerMovement>().GetHorizontal();
+            if (movementDirection < 0)
+            {
+                playerRB.velocity = new Vector2(knockbackPower, 0f);
+                Debug.Log("Movement is negative");
+                Debug.Log(playerRB.velocity);
+                StartCoroutine(ChangeExternalVelocityRight());
+            }
+            else
+            {
+                playerRB.velocity = new Vector2(-knockbackPower, 0f);
+                Debug.Log(playerRB.velocity);
+                Debug.Log("Movement is positive or zero");
+                StartCoroutine(ChangeExternalVelocityLeft());
+            }
+        }
+        else if (isPitfall && Phealth.health > 0)
+        {
+            checkpoints.RespawnPlayerAtCheckpoint();
+        }
+
+        Phealth.Damaged();
+        Debug.Log("Take damage");
+        playerDamaged = true;
+        damageCountdown = damageCooldown;
     }
 
     public IEnumerator ChangeExternalVelocityRight()
