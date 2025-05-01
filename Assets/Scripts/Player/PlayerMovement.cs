@@ -12,13 +12,13 @@ public class PlayerMovement : MonoBehaviour
     private float walkSoundToggleTimer = 0f;
     private bool playHighSound = true;
 
-    public float speed = 5f;
-    public float jumpForce = 10f;
+    public float speed = 8f;
+    public float jumpForce = 30f;
     public Transform groundCheck;
     public LayerMask groundLayer;
     public Animator animator;
 
-    private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
     private float groundCheckRadius = 0.2f;

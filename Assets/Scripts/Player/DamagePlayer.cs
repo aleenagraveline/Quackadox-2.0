@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    public Rigidbody2D playerRB;
+    [SerializeField] private PlayerMovement player;
+    [SerializeField] private Rigidbody2D playerRB;
     [SerializeField] private bool shouldPushPlayer;
     [SerializeField] private float knockbackPower;
     [SerializeField] private bool isPitfall;
@@ -22,7 +22,8 @@ public class DamagePlayer : MonoBehaviour
 
     void Start()
     {
-        playerRB = player.GetComponent<PlayerMovement>().GetRB();
+        //playerRB = player.GetComponent<PlayerMovement>().GetRB();
+        //Debug.Log(this.gameObject + ": " + player.GetComponent<PlayerMovement>().GetRB());
         playerDamaged = false;
         damageCountdown = 0;
         if (shouldPushPlayer && knockbackPower == 0)
