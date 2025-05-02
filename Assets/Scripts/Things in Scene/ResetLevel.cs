@@ -10,8 +10,7 @@ public class ResetLevel : MonoBehaviour
         Debug.Log("Triggered with: " + other.name); // Debug line
         if (other.CompareTag("Player"))
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
+            SceneManager.LoadScene("CreditScene");
         }
     }
 }
