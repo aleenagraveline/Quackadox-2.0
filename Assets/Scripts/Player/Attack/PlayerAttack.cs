@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    public Transform attackSpawnPoint;
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -53,9 +54,9 @@ public class PlayerAttack : MonoBehaviour
 
     void ShootAttackWithDelay()
     {
-        if (attackIndex < 3)
+        if (attackIndex < 1)
         {
-            GameObject attack = Instantiate(attackPrefab, transform.position, Quaternion.identity);
+            GameObject attack = Instantiate(attackPrefab, attackSpawnPoint.position, Quaternion.identity);
 
             // Get direction based on SpriteRenderer flip
             bool facingRight = !playerMovement.GetComponent<SpriteRenderer>().flipX;
