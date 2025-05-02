@@ -13,6 +13,7 @@ public class LazerSpawn : MonoBehaviour
     [SerializeField] private GameObject laserBeam;
     [SerializeField] private bool moveInY;
     [SerializeField] private bool laserStaysOn;
+    //[SerializeField] AudioManager sounds;
     private Vector3 startingPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -51,14 +51,14 @@ public class DamagePlayer : MonoBehaviour
         if (collider.gameObject == player.gameObject && !playerDamaged && !(this.gameObject.tag.Equals("Enemy")))
         {
             Debug.Log("OW!");
-            DamageHandler();
+            DamageHandler(collider.gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject == player.gameObject && !playerDamaged && this.gameObject.tag.Equals("Enemy"))
         {
-            DamageHandler();
+            DamageHandler(collision.gameObject);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -66,13 +66,25 @@ public class DamagePlayer : MonoBehaviour
         if (collision.gameObject == player.gameObject && !playerDamaged && this.gameObject.tag.Equals("Enemy"))
         {
             Debug.Log("From collision function");
-            DamageHandler();
+            DamageHandler(collision.gameObject);
         }
     }
 
-    public void DamageHandler()
+    public void DamageHandler(GameObject other)
     {
         sounds.Play("Damage");
+        if(other.tag.Equals("Laser"))
+        {
+            sounds.Play("LaserDamage");
+        }
+        else if(other.tag.Equals("Enemy"))
+        {
+            sounds.Play("EnemyAttack");
+        }
+        else if(other.tag.Equals("Vine"))
+        {
+            sounds.Play("VineDamage");
+        }
 
         if (shouldPushPlayer)
         {

@@ -217,7 +217,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Damage
     clip: {fileID: 8300000, guid: 79c794f19f0894d45be3be1f4b648412, type: 3}
-    volume: 0.358
+    volume: 0.162
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -232,6 +232,30 @@ MonoBehaviour:
     volume: 0.358
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: LaserDamage
+    clip: {fileID: 8300000, guid: 01a6f91fd346f6f43be2a7810915460c, type: 3}
+    volume: 0.629
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: VineDamage
+    clip: {fileID: 8300000, guid: d9634739e23706d43b0de87623358340, type: 3}
+    volume: 0.638
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DuckAttack
+    clip: {fileID: 8300000, guid: 01594d949c8c09448a3f4f3a4f89c158, type: 3}
+    volume: 0.358
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyAttack
+    clip: {fileID: 8300000, guid: 43feed8325c88b441820c9d68808c667, type: 3}
+    volume: 0.633
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!1 &33077741
 GameObject:
@@ -2429,7 +2453,7 @@ GameObject:
   - component: {fileID: 354443549}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4524,7 +4548,7 @@ GameObject:
   - component: {fileID: 761476186}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5059,7 +5083,7 @@ GameObject:
   - component: {fileID: 843755249}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5526,7 +5550,7 @@ GameObject:
   - component: {fileID: 899506722}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8334,7 +8358,7 @@ GameObject:
   - component: {fileID: 1378519029}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9329,7 +9353,7 @@ GameObject:
   - component: {fileID: 1455984976}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56404,6 +56428,7 @@ MonoBehaviour:
   attackSpeed: 10
   attackLifetime: 3
   attackSpawnPoint: {fileID: 1783829755}
+  sounds: {fileID: 1925445}
 --- !u!114 &1711999160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57048,7 +57073,7 @@ GameObject:
   - component: {fileID: 1809736879}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57200,7 +57225,7 @@ GameObject:
   - component: {fileID: 1829083028}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

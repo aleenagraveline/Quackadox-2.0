@@ -13,6 +13,8 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMovement playerMovement;
 
     public Transform attackSpawnPoint;
+
+    [SerializeField] AudioManager sounds;
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -57,6 +59,7 @@ public class PlayerAttack : MonoBehaviour
         if (attackIndex < 1)
         {
             GameObject attack = Instantiate(attackPrefab, attackSpawnPoint.position, Quaternion.identity);
+            sounds.Play("DuckAttack");
 
             // Get direction based on SpriteRenderer flip
             bool facingRight = !playerMovement.GetComponent<SpriteRenderer>().flipX;
