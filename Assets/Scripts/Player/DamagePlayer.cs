@@ -50,8 +50,6 @@ public class DamagePlayer : MonoBehaviour
         Debug.Log("DAMAGE COLLISION: " + collider.gameObject);
         if (collider.gameObject == player.gameObject && !playerDamaged && !(this.gameObject.tag.Equals("Enemy")))
         {
-            Debug.Log("From trigger function");
-            Debug.Log(this.gameObject.tag);
             Debug.Log("OW!");
             DamageHandler();
         }
@@ -60,7 +58,6 @@ public class DamagePlayer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject == player.gameObject && !playerDamaged && this.gameObject.tag.Equals("Enemy"))
         {
-            Debug.Log("From collision function");
             DamageHandler();
         }
     }
@@ -117,6 +114,7 @@ public class DamagePlayer : MonoBehaviour
             yield return null;
         }
 
+        Debug.Log("Velocity Right 0");
         player.GetComponent<PlayerMovement>().SetPushed(false);
 
         yield return new WaitForSeconds(1.0f);
@@ -131,7 +129,7 @@ public class DamagePlayer : MonoBehaviour
             Debug.Log(playerRB.velocity);
             yield return null;
         }
-
+        Debug.Log("Velocity Left 0");
         player.GetComponent<PlayerMovement>().SetPushed(false);
 
         yield return new WaitForSeconds(1.0f);
