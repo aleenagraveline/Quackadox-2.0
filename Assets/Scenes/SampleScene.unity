@@ -221,6 +221,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: MetalWalk
+    clip: {fileID: 8300000, guid: a9449deb453a035428a2e76bebfd2ed4, type: 3}
+    volume: 0.358
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: CyberCityMusic
+    clip: {fileID: 8300000, guid: 7df8a9ddd922cc74f9f3a0f119007ce6, type: 3}
+    volume: 0.358
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &33077741
 GameObject:
   m_ObjectHideFlags: 0

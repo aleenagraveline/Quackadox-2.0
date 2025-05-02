@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField] private GameObject normalBackground;
     [SerializeField] private GameObject alternateBackground;
 
     //HillSwitch
     private bool inPathSwitchZone = false;
     private bool onHill = false;
+
 
     //Walk sound
     private float walkSoundToggleTimer = 0f;
@@ -106,34 +106,44 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal = Input.GetAxisRaw("Horizontal");
 
-            // Toggle walking sound
-            if (horizontal != 0)
+            // Walking sound logic
+            if (horizontal != 0 && IsGrounded())
             {
                 walkSoundToggleTimer -= Time.deltaTime;
 
-                // Alternate the sound based on a timer or movement
                 if (walkSoundToggleTimer <= 0f)
                 {
-                    if (playHighSound)
+                    // Stop all walking sounds before playing new one
+                    audioManager.Stop("WalkHigh");
+                    audioManager.Stop("WalkLow");
+                    audioManager.Stop("MetalWalk");
+
+                    if (isInAlternateLevel)
                     {
-                        FindObjectOfType<AudioManager>().Play("WalkHigh");
+                        // Play looping metal walk sound in alternate world
+                        audioManager.Play("MetalWalk");
                     }
                     else
                     {
-                        FindObjectOfType<AudioManager>().Play("WalkLow");
+                        // Play alternating footstep sounds
+                        if (playHighSound)
+                            audioManager.Play("WalkHigh");
+                        else
+                            audioManager.Play("WalkLow");
+
+                        playHighSound = !playHighSound;
                     }
 
-                    // Toggle sound
-                    playHighSound = !playHighSound;
-
-                    // Reset the timer to control how fast it alternates (example: every 0.5 seconds)
                     walkSoundToggleTimer = 0.5f;
                 }
             }
             else
             {
-                // Stop both sounds when not moving
-                walkSoundToggleTimer = 0f;  // Reset timer when player stops moving
+                // Player is not moving or not grounded — stop walking sounds
+                walkSoundToggleTimer = 0f;
+                audioManager.Stop("WalkHigh");
+                audioManager.Stop("WalkLow");
+                audioManager.Stop("MetalWalk");
             }
         }
 
@@ -298,6 +308,14 @@ public class PlayerMovement : MonoBehaviour
             // Calculate the position where the exit portal should appear in the new world
             Vector2 exitPortalPosition;
             Vector2 playerExitPosition;
+
+
+            // Stop title screen music and play cyber city music
+            if (audioManager != null)
+            {
+                audioManager.Stop("TitleScreen");
+                audioManager.Play("CyberCityMusic");
+            }
 
             if (!isInAlternateLevel)
             {
