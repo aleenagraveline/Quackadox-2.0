@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    public Transform attackSpawnPoint;
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -53,9 +54,9 @@ public class PlayerAttack : MonoBehaviour
 
     void ShootAttackWithDelay()
     {
-        if (attackIndex < 3)
+        if (attackIndex < 1)
         {
-            GameObject attack = Instantiate(attackPrefab, transform.position, Quaternion.identity);
+            GameObject attack = Instantiate(attackPrefab, attackSpawnPoint.position, Quaternion.identity);
 
             // Get direction based on SpriteRenderer flip
             bool facingRight = !playerMovement.GetComponent<SpriteRenderer>().flipX;
@@ -70,10 +71,23 @@ public class PlayerAttack : MonoBehaviour
                 rb.velocity = direction.normalized * attackSpeed;
             }
 
-            Destroy(attack, attackLifetime);
+            // Start the delay before destroying the attack
+            StartCoroutine(AttackLifetime(attack, attackLifetime));
+
             attackIndex++;
 
             Invoke(nameof(ShootAttackWithDelay), 0.2f);
         }
     }
+
+    // Coroutine to handle attack lifetime after hitting enemy
+    IEnumerator AttackLifetime(GameObject attack, float delay)
+    {
+        // Wait for the specified attack lifetime before destroying
+        yield return new WaitForSeconds(delay);
+
+        // Destroy the attack object after the delay
+        Destroy(attack);
+    }
 }
+
