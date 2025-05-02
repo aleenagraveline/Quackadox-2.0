@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackDamage : MonoBehaviour
 {
     public int damage = 1; // Amount of damage this attack does
+    public float destroyDelay = 0.2f; // Delay before destroying the attack after hitting an enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,8 +17,17 @@ public class AttackDamage : MonoBehaviour
         {
             enemyHealth.TakeDamage(damage);
 
-            // Optional: destroy the projectile after hitting an enemy
-            Destroy(gameObject);
+            // Start a coroutine to delay destruction
+            StartCoroutine(DelayDestroy());
         }
+    }
+
+    IEnumerator DelayDestroy()
+    {
+        // Wait for the specified destroy delay
+        yield return new WaitForSeconds(destroyDelay);
+
+        // Destroy the attack object
+        Destroy(gameObject);
     }
 }
