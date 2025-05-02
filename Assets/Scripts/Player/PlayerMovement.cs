@@ -309,6 +309,14 @@ public class PlayerMovement : MonoBehaviour
             Vector2 exitPortalPosition;
             Vector2 playerExitPosition;
 
+
+            // Stop title screen music and play cyber city music
+            if (audioManager != null)
+            {
+                audioManager.Stop("TitleScreen");
+                audioManager.Play("CyberCityMusic");
+            }
+
             if (!isInAlternateLevel)
             {
                 // Going to alternate world
