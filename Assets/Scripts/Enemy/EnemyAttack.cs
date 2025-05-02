@@ -27,7 +27,7 @@ public class EnemyAttack : MonoBehaviour
             }
 
             // Damage the player
-            Phealth.Damaged();
+            //Phealth.Damaged();
 
             // Optionally, you can set IsAttacking back to false after some time (if the attack has an animation length)
             StartCoroutine(ResetAttackAnimation());

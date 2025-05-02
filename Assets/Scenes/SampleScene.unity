@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 65204158}
   - component: {fileID: 65204157}
   - component: {fileID: 65204156}
+  - component: {fileID: 65204164}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -754,6 +755,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1711999152}
   Phealth: {fileID: 1711999160}
+--- !u!114 &65204164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65204153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3981edc78db5c944fb6d1874b1ebee8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1711999154}
+  playerRB: {fileID: 1711999153}
+  shouldPushPlayer: 1
+  knockbackPower: 5
+  isPitfall: 0
+  Phealth: {fileID: 1711999160}
+  damageCooldown: 2
+  sounds: {fileID: 1925445}
+  checkpoints: {fileID: 442277540}
 --- !u!1 &68689596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,7 +3394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &566755634
 Transform:
   m_ObjectHideFlags: 0
@@ -3403,7 +3425,7 @@ MonoBehaviour:
   player: {fileID: 1711999154}
   playerRB: {fileID: 1711999153}
   shouldPushPlayer: 1
-  knockbackPower: 50
+  knockbackPower: 20
   isPitfall: 0
   Phealth: {fileID: 1711999160}
   damageCooldown: 5
@@ -4983,7 +5005,7 @@ Transform:
   m_GameObject: {fileID: 830691083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500.86, y: -86.51, z: 0.071519144}
+  m_LocalPosition: {x: 501.83, y: -86.43, z: -2.0763476}
   m_LocalScale: {x: 2.6731732, y: 2.6731732, z: 2.6731732}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7165,7 +7187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1162167761
 Transform:
   m_ObjectHideFlags: 0
@@ -7456,7 +7478,7 @@ GameObject:
   - component: {fileID: 1218318591}
   m_Layer: 0
   m_Name: EnemyDetect
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7743,7 +7765,7 @@ GameObject:
   - component: {fileID: 1296290205}
   m_Layer: 0
   m_Name: EnemyDetect
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55722,6 +55744,7 @@ GameObject:
   - component: {fileID: 1649833153}
   - component: {fileID: 1649833152}
   - component: {fileID: 1649833151}
+  - component: {fileID: 1649833159}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -55937,6 +55960,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1711999152}
   Phealth: {fileID: 1711999160}
+--- !u!114 &1649833159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649833148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3981edc78db5c944fb6d1874b1ebee8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1711999154}
+  playerRB: {fileID: 1711999153}
+  shouldPushPlayer: 1
+  knockbackPower: 5
+  isPitfall: 0
+  Phealth: {fileID: 1711999160}
+  damageCooldown: 2
+  sounds: {fileID: 1925445}
+  checkpoints: {fileID: 442277540}
 --- !u!1 &1668759780
 GameObject:
   m_ObjectHideFlags: 0
@@ -56081,9 +56125,9 @@ GameObject:
   - component: {fileID: 1711999160}
   - component: {fileID: 1711999154}
   - component: {fileID: 1711999153}
-  - component: {fileID: 1711999162}
   - component: {fileID: 1711999158}
   - component: {fileID: 1711999161}
+  - component: {fileID: 1711999164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -56386,8 +56430,8 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
---- !u!60 &1711999162
-PolygonCollider2D:
+--- !u!70 &1711999164
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56418,74 +56462,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.33919096, y: 0.26667392}
-      - {x: 0.29526013, y: 0.31392774}
-      - {x: 0.25582328, y: 0.34763432}
-      - {x: 0.0640206, y: 0.34895873}
-      - {x: -0.0018448494, y: 0.31868798}
-      - {x: -0.03138781, y: 0.30656475}
-      - {x: -0.095228255, y: 0.25093654}
-      - {x: -0.12791932, y: 0.19230655}
-      - {x: -0.12596634, y: 0.03948832}
-      - {x: -0.12767056, y: 0.005376242}
-      - {x: -0.25428084, y: -0.0004147105}
-      - {x: -0.25536677, y: -0.028299581}
-      - {x: -0.288484, y: -0.03358851}
-      - {x: -0.28324032, y: -0.056462467}
-      - {x: -0.31872222, y: -0.056722112}
-      - {x: -0.3188423, y: -0.095747985}
-      - {x: -0.28466097, y: -0.095887035}
-      - {x: -0.2853006, y: -0.15826583}
-      - {x: -0.2530378, y: -0.16131099}
-      - {x: -0.2513633, y: -0.22308257}
-      - {x: -0.22508177, y: -0.2257853}
-      - {x: -0.22166154, y: -0.25400585}
-      - {x: -0.15886538, y: -0.25509477}
-      - {x: -0.16083202, y: -0.28577942}
-      - {x: -0.09647103, y: -0.2875938}
-      - {x: -0.09721821, y: -0.30856812}
-      - {x: -0.13532357, y: -0.30819947}
-      - {x: -0.12859575, y: -0.3479066}
-      - {x: -0.08971095, y: -0.34755942}
-      - {x: -0.027863085, y: -0.34227857}
-      - {x: -0.026576258, y: -0.31314403}
-      - {x: -0.057531297, y: -0.30997774}
-      - {x: -0.05510425, y: -0.28646156}
-      - {x: 0.09529428, y: -0.28707877}
-      - {x: 0.09431692, y: -0.3034487}
-      - {x: 0.06120029, y: -0.31477666}
-      - {x: 0.057914305, y: -0.34405407}
-      - {x: 0.15088731, y: -0.35152942}
-      - {x: 0.1659238, y: -0.35067973}
-      - {x: 0.15691301, y: -0.3486392}
-      - {x: 0.15707311, y: -0.31158552}
-      - {x: 0.12736902, y: -0.30978328}
-      - {x: 0.12614419, y: -0.28463522}
-      - {x: 0.21976133, y: -0.28290218}
-      - {x: 0.22065876, y: -0.25442106}
-      - {x: 0.2861675, y: -0.25437665}
-      - {x: 0.28553447, y: -0.22436811}
-      - {x: 0.31539974, y: -0.22555333}
-      - {x: 0.31495583, y: -0.19272412}
-      - {x: 0.34931585, y: -0.18904227}
-      - {x: 0.34703395, y: -0.06311712}
-      - {x: 0.35025713, y: -0.045270726}
-      - {x: 0.3513486, y: 0.022280062}
-      - {x: 0.38653728, y: 0.026226077}
-      - {x: 0.38244468, y: 0.22687605}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0.03734398, y: 0.0013620853}
+  m_Size: {x: 0.7045889, y: 0.7045889}
+  m_Direction: 0
 --- !u!1 &1729622336
 GameObject:
   m_ObjectHideFlags: 0

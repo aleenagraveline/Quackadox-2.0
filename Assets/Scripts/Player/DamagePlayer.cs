@@ -48,16 +48,27 @@ public class DamagePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("DAMAGE COLLISION: " + collider.gameObject);
-        if (collider.gameObject == player.gameObject && !playerDamaged)
+        if (collider.gameObject == player.gameObject && !playerDamaged && !(this.gameObject.tag.Equals("Enemy")))
         {
+            Debug.Log("From trigger function");
+            Debug.Log(this.gameObject.tag);
             Debug.Log("OW!");
             DamageHandler();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag.Equals("Enemy"))
+        if (collision.gameObject == player.gameObject && !playerDamaged && this.gameObject.tag.Equals("Enemy"))
         {
+            Debug.Log("From collision function");
+            DamageHandler();
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject == player.gameObject && !playerDamaged && this.gameObject.tag.Equals("Enemy"))
+        {
+            Debug.Log("From collision function");
             DamageHandler();
         }
     }
